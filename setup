@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# remove i2c from blacklist
+
+sed -i '4 s/^/#/' /etc/modprobe.d/raspi-blacklist.conf
+
+
+# enable i2c kernel module
+
+echo "i2c-dev" >> /etc/modules
+
+
+# install i2c packages
+
+sudo apt-get update
+sudo apt-get install i2c-tools
+sudo apt-get install python3-smbus
+
+
+# add user pi to i2c access group
+
+sudo adduser pi i2c
+
+
+
+echo "Please reboot for changes to take effect"

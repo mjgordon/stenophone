@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+import RPi.GPIO as GPIO
+import time
+import smbus
+
+bus = smbus.SMBus(0)
+addressA = 0x60 #todo check these
+addressB = 0x61
+
+pin_sda = 2
+pin_scl = 3
